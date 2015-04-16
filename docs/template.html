@@ -16,6 +16,10 @@
     .rounded { border-radius: 3px }
     pre { padding: 1rem }
     pre, .bg-darken-1 { background-color: rgba(0,0,0,.03125) }
+    .bg-white { background-color: white }
+    
+    .sm-show { display: none }
+    @media (min-width:40em) { .sm-show { display: block } }
   </style>
 </head>
 <body class="px3 container">
@@ -31,17 +35,26 @@
     </p>
   </section>
 
-  <!--
-  <section id="features" class="py3">
-    <h1><a href="#features">Features</a></h1>
+  <section id="stats" class="py3">
     <ul class="list-reset">
-      <li>Base Typography Styles</li>
-      <li>Layout Utilities</li>
-      <li>Typography Utilities</li>
-      <li>White Space Scale</li>
+      <li><b><%= gzip %></b></li>
+      <li><b><%= stats.rules.length %></b> Rules</li>
+      <li><b><%= stats.aggregates.selectors %></b> Selectors</li>
+      <li><b><%= stats.aggregates.declarations %></b> Declarations</li>
     </ul>
   </section>
-  -->
+
+  <ul class="p1 list-reset bg-white">
+    <% modules.forEach(function(m) { %>
+      <li>
+        <a href="<%= '#' + pfx(m.name) %>">
+          <b>
+            <%= pfx(m.name) %>
+          </b>
+        </a>
+      </li>
+    <% }) %>
+  </ul>
 
   <% modules.forEach(function(m) { %>
     <section id="<%= pfx(m.name) %>" class="py3">
@@ -53,6 +66,7 @@
       <%= m.content %>
     </section>
   <% }) %>
+
 
 
   <%/* footer(obj) */ %>
