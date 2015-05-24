@@ -1,20 +1,7 @@
 /*! Basic | Colorless, scaffolding theme for Basscss */
 
 
-/* Probably excluding these
-@import 'normalize.css';
-
-@import 'basscss-base-forms';
-@import 'basscss-base-buttons';
-@import 'basscss-base-tables';
- * */
-body, button { margin: 0 }
-
-button, input, select, textarea {
-  font-family: inherit;
-  font-size: 100%;
-}
-
+body { margin: 0 }
 img { max-width: 100% }
 svg { max-height: 100% }
 /* Basscss Base Typography */
@@ -33,7 +20,15 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: .5em;
 }
 
-p, dl, ol, ul {
+p {
+  font-size: 16px;
+  font-size: 1rem;
+  margin-top: 0;
+  margin-bottom: 16px;
+  margin-bottom: 1rem;
+}
+
+dl, ol, ul {
   font-size: 16px;
   font-size: 1rem;
   margin-top: 0;
@@ -53,42 +48,12 @@ pre {
   overflow-x: scroll;
 }
 
-hr {
-  margin-top: 32px;
-  margin-top: 2rem;
-  margin-bottom: 32px;
-  margin-bottom: 2rem;
-}
-
-blockquote {
-  margin-top: 32px;
-  margin-top: 2rem;
-  margin-bottom: 32px;
-  margin-bottom: 2rem;
-  margin-left: 0;
-  padding-left: 16px;
-  padding-left: 1rem;
-  padding-right: 16px;
-  padding-right: 1rem;
-}
-  blockquote,
-  blockquote p {
-    font-size: 20px;
-    font-size: 1.25rem;
-    font-style: italic;
-  }
-
-h1, .h1 { font-size: 32px; font-size: 2rem }
-h2, .h2 { font-size: 24px; font-size: 1.5rem }
-h3, .h3 { font-size: 20px; font-size: 1.25rem }
-h4, .h4 { font-size: 16px; font-size: 1rem }
-h5, .h5 { font-size: 14px; font-size: .875rem }
-h6, .h6 { font-size: 12px; font-size: .75rem }
-
-.list-reset {
-  list-style: none;
-  padding-left: 0;
-}
+h1 { font-size: 32px; font-size: 2rem }
+h2 { font-size: 24px; font-size: 1.5rem }
+h3 { font-size: 20px; font-size: 1.25rem }
+h4 { font-size: 16px; font-size: 1rem }
+h5 { font-size: 14px; font-size: .875rem }
+h6 { font-size: 12px; font-size: .75rem }
 
 /* Basscss Defaults */
 
@@ -119,6 +84,8 @@ h6, .h6 { font-size: 12px; font-size: .75rem }
 .inline       { display: inline }
 .block        { display: block }
 .inline-block { display: inline-block }
+.table        { display: table }
+.table-cell   { display: table-cell }
 
 .overflow-hidden { overflow: hidden }
 .overflow-scroll { overflow: scroll }
@@ -136,8 +103,15 @@ h6, .h6 { font-size: 12px; font-size: .75rem }
 
 .fit { max-width: 100% }
 
-.half-width { width: 50% }
-.full-width { width: 100% }
+.border-box { box-sizing: border-box }
+/* Basscss Type Scale */
+
+.h1 { font-size: 32px; font-size: 2rem }
+.h2 { font-size: 24px; font-size: 1.5rem }
+.h3 { font-size: 20px; font-size: 1.25rem }
+.h4 { font-size: 16px; font-size: 1rem }
+.h5 { font-size: 14px; font-size: .875rem }
+.h6 { font-size: 12px; font-size: .75rem }
 /* Basscss Utility Typography */
 
 .bold    { font-weight: bold; font-weight: bold }
@@ -151,6 +125,19 @@ h6, .h6 { font-size: 12px; font-size: .75rem }
 .justify      { text-align: justify }
 
 .nowrap { white-space: nowrap }
+.break-word { word-wrap: break-word }
+
+.truncate {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.list-reset {
+  list-style: none;
+  padding-left: 0;
+}
 /* Basscss Utility White Space */
 
 .m0  { margin:        0 }
@@ -205,47 +192,4 @@ h6, .h6 { font-size: 12px; font-size: .75rem }
 .py4 { padding-top: 64px; padding-top: 4rem; padding-bottom: 64px; padding-bottom: 4rem }
 .px4 { padding-left: 64px; padding-left: 4rem; padding-right: 64px; padding-right: 4rem }
 
-
-/* Under consideration
-@import 'basscss-responsive-states';
-@import 'basscss-positions';
-@import 'basscss-grid';
-@import 'flex-object';
-*/
-
-
-/* Custom properties */
-/*
-:root {
-
-  --font-family: 'Helvetica Neue', Helvetica, sans-serif;
-  --line-height: 1.5;
-  --heading-font-family: var(--font-family);
-  --heading-font-weight: bold;
-  --heading-line-height: 1.25;
-  --monospace-font-family: 'Source Code Pro', Consolas, monospace;
-
-  --h1: 2rem;
-  --h2: 1.5rem;
-  --h3: 1.25rem;
-  --h4: 1rem;
-  --h5: .875rem;
-  --h6: .75rem;
-
-  --bold-font-weight: bold;
-
-  --space-1: .5rem;
-  --space-2: 1rem;
-  --space-3: 2rem;
-  --space-4: 4rem;
-
-  --form-field-font-size: 1rem;
-  --form-field-height: 2.25rem;
-  --form-field-padding-y: .5rem;
-  --form-field-padding-x: .5rem;
-
-  --container-width: 64em;
-
-}
-*/
 

@@ -40,6 +40,7 @@ var modules = [
   'basscss-base-reset',
   'basscss-base-typography',
   'basscss-utility-layout',
+  'basscss-type-scale',
   'basscss-utility-typography',
   'basscss-white-space',
   //'basscss-defaults',
